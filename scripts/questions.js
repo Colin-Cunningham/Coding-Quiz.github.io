@@ -1,30 +1,27 @@
 var questions = [
     //Question 1
     {   
-        Title: "Choose the commonly used data type:",
-        Choices:["prompts","alerts","string","confirm"],
-        Answer: "string"
-    },  
-    {   
-        Title: "What coding language is often referred to as the 'skelton' of the internet?:",
-        Choices:["javascript","CSS","WWW.","HTML"],
-        Answer: "HTML"
-    },
-    {   
-        Title: "What is the correct syntax for wiritng JavaScript Variables?:",
-        Choices:["<Javascript>","Java-Script","javaScript",".javascript"],
-        Answer:"javaScript"
+        question: "Finish this sentence 'I am ___:'",
+        answers:[
+        {text: "Iron Man", correct: true},
+        {text: "Groot", correct: false},
+        {text: "Starlord, Man...", correct: false},
+        {text: "here", correct: false}
+    
+    ],
     }, 
-    {
-        Title: "Which syntax is used to create and array?",
-        Choices:["{}","[]","()","<>"],
-        Answer:"[]",
-    },
-    {
-        Title: "What language is used to style a web page?",
-        Choices:["CSS","BootStrap","English","SSC"],
-        Answer:"CSS",
-    }
+    
+    {   
+        question: "Finish this Rentence 'I am ___:'",
+        answers:[
+        {text: "IrorR Man", correct: true},
+        {text: "Grodedwefefot", correct: false},
+        {text: "Starlord, Man...", correct: false},
+        {text: "hefffewre", correct: false}
+    
+    ],
+    } 
 ]
+
 
 

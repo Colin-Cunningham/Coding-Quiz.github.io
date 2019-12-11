@@ -14,7 +14,14 @@
 
 ###3. How did I make this project?
 
-    The first thing I did was use bootstrap to create the card, header and container elements, then I created the timer using peices of the tutorial "https://www.youtube.com/watch?v=u_6CqjQ-L8Q" 
+    The first thing I did was use bootstrap to create the card, header and container elements, then I created the timer using peices of the tutorial "https://www.youtube.com/watch?v=u_6CqjQ-L8Q".
+
+New Skills learned 
+    * New types of dislpays including grid, and template columns.
+    * Leanred how to cycle through arrays and general overall functions using https://www.youtube.com/watch?v=riDzcEQbX6k&t=331s tutorial.
+    * Added Restart element ass well as next button element.
+    
+    
 
 
 
