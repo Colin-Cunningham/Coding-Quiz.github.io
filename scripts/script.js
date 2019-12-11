@@ -1,4 +1,4 @@
-var counter= "75";
+var counter= "120";
 
 var startButton = document.getElementById('start-btn')
 
@@ -11,6 +11,8 @@ var questionEl= document.getElementById('question')
 var answerEl=document.getElementById('answer-buttons')
 
 var shuffledQuestions, currentQuestionIndex
+
+var highScore= document.getElementById('highscore')
 
 
 
@@ -26,10 +28,10 @@ function timer(){
      
     newVar = setInterval(countDown, 1000)
     
-    
     if(counter < 0) {
-        element.innerHTML=("0");
+        element.innerText=("0");
     }
+
 }
 timer()
 
@@ -52,9 +54,12 @@ function reset(){
     while (answerEl.firstChild){
         answerEl.removeChild(answerEl.firstChild)
     }
+    
 }
 
-
+function clearLocalStorage(){
+    window.localStorage.clear()
+}
 
 function showQuestion(question){
         questionEl.innerText = question.question 
@@ -67,20 +72,42 @@ function showQuestion(question){
             }
         button.addEventListener('click', selectAnswer)
         answerEl.appendChild(button)
+        
+       
+        window.localStorage.setItem('answer', answer.correct)
         })
+  
+}
+function stopTime(counter){
+
 
 }
 
+function inputForm(){
+        var input = document.createElement("textarea")
+        input.innerText= window.localStorage.getItem('answer')
+            }
+
+console.log(inputForm())
 function selectAnswer(element){
     var pushedButton = element.target
     var correct = pushedButton.dataset.correct
-    console.log(correct)
+    if(correct === 'true') {
+        window.localStorage.setItem('+1', correct)
+    }else{
+        counter= counter - 15
+    }
+    
+    
     if (shuffledQuestions.length > currentQuestionIndex + 1){
         nextButton.classList.remove('hide')
     } 
     else {
+        window.localStorage.setItem('Score', counter)
+        highScore.classList.remove('hide')
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
+
     }
 }
 
@@ -88,8 +115,11 @@ function selectAnswer(element){
 
 
 startButton.addEventListener('click', startGame)
-
+highScore.addEventListener('click', inputForm)
+startButton.addEventListener('click', clearLocalStorage)
 nextButton.addEventListener('click', () =>{
     currentQuestionIndex++
     nextQuestion()
+    
 })
+

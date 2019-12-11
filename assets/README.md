@@ -20,6 +20,7 @@ New Skills learned
     * New types of dislpays including grid, and template columns.
     * Leanred how to cycle through arrays and general overall functions using https://www.youtube.com/watch?v=riDzcEQbX6k&t=331s tutorial.
     * Added Restart element ass well as next button element.
+
     
     
 
