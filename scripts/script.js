@@ -18,6 +18,9 @@ var element= document.getElementById('timer')
 
 var namePlace=document.getElementById('name')
 
+var landingPage= document.getElementById('landing-page')
+
+
 function countDown(){
     if (counter <= 0) {
         clearInterval(newVar)
@@ -36,7 +39,7 @@ function timer(){
     
 }
 
-  
+
     
 function startGame(){
     console.log('Started');
@@ -44,6 +47,7 @@ function startGame(){
     shuffledQuestions= questions.sort(() => Math.random()-.5);
     currentQuestionIndex = 0
     questionContainerEl.classList.remove('hide')
+    landingPage.classList.add('hide')
     nextQuestion()
 }
 
@@ -111,9 +115,6 @@ function selectAnswer(element){
     } 
     else {
         window.localStorage.setItem('Score', counter)
-        highScore.classList.remove('hide')
-        startButton.innerText = 'Restart'
-        startButton.classList.remove('hide')
         namePlace.classList.remove('hide')
     }
 }
@@ -123,8 +124,8 @@ function selectAnswer(element){
 
 startButton.addEventListener('click', startGame)
 startButton.addEventListener('click', timer)
-highScore.addEventListener('click', inputForm)
 startButton.addEventListener('click', clearLocalStorage)
+
 nextButton.addEventListener('click', () =>{
     currentQuestionIndex++
     nextQuestion()
