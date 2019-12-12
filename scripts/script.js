@@ -20,13 +20,17 @@ var namePlace=document.getElementById('name')
 
 var landingPage= document.getElementById('landing-page')
 
+var responsePlace= document.getElementById('wrong')
 
-function countDown(){
+var otherResponse = document.getElementById('right')
+
+
+    function countDown(){
     if (counter <= 0) {
         clearInterval(newVar)
     } else{
     counter--;
-    element.innerHTML=(counter);
+    element.innerHTML=("Remaining Time:  " + counter);
    }
 }
 // Create the Timer that will be in the top left
@@ -76,6 +80,7 @@ function showQuestion(question){
             button.classList.add('btn')
             if(answer.correct){
                 button.dataset.correct = answer.correct
+
             }
         button.addEventListener('click', selectAnswer)
         answerEl.appendChild(button)
@@ -100,13 +105,18 @@ function inputForm(){
 console.log(inputForm())
 function selectAnswer(element){
     var pushedButton = element.target
-    var correct = pushedButton.dataset.correct
+    var correct = pushedButton.dataset.correct;
+    var correctSound= new Audio();
+    correctSound.src="soundbytes/Thor.mp3"
+    var wrongSound=  new Audio();
+    wrongSound.src =""
     if(correct === 'true') {
-        window.localStorage.setItem('+1', correct)
-        
+        window.localStorage.setItem('+1', correct);
+        otherResponse.innerText = "Correct!"
+       
     }else{
-        counter= counter - 15
-        playAudio()
+        counter= counter - 15 ;
+        responsePlace.innerText = "Wrong -15"
     }
     
     
@@ -125,10 +135,12 @@ function selectAnswer(element){
 startButton.addEventListener('click', startGame)
 startButton.addEventListener('click', timer)
 startButton.addEventListener('click', clearLocalStorage)
-
 nextButton.addEventListener('click', () =>{
     currentQuestionIndex++
     nextQuestion()
+    responsePlace.innerText = "";
+    otherResponse.innerText= "";
     
 })
 
+console.log(responsePlace.innerText)
