@@ -44,12 +44,9 @@ font-weight: bolder;}
     width: fit-content;
     font-size: 18px;
     text-align: center;
-    
+    margin: 0 auto;
 }
 
-#fName{
-    width: fit-content;
-}
 
 #name-group{
     width: fit-content;
