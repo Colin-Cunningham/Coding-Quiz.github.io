@@ -2,7 +2,7 @@ var counter = 120;
 
 var startButton = document.getElementById('start-btn')
 
-var questionContainerEl =document.getElementById('question-container')
+var questionContainerEl = document.getElementById('question-container')
 
 var nextButton = document.getElementById('next-btn')
 
