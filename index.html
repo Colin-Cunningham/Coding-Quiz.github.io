@@ -12,7 +12,7 @@
 <body background="assets/endgame.jpg">
     <nav class="navbar navbar-light bg-light">
         <p id="timer">Timer: </p>
-          <button id= "highscore" class="btn hide" type="checked">HighScores</button>
+          <button id= "highscore" class="btn hide" type="checked">Score= </button>
         
       </nav>
        <div class="container-fluid">    
@@ -26,11 +26,15 @@
               <button class="btn">Answer 4</button> -->
             </div> 
             </div>
+          <div id="name" class="hide">
+               Name: <input type="text" name="fname"><br>
+           </div>
           <div class="UI">
             <button id="start-btn" class= "start-btn btn">Start!</button>
             <button id="next-btn"  class="btn hide">Next</button>
           </div>
         </div> 
+      <audio id="audio" src="http://dev.interactive-creation-works.net/1/1.ogg" ></audio>
       <script src="scripts/questions.js"></script>
       <script src="scripts/script.js"></script>
 </body>

@@ -1,4 +1,4 @@
-var counter= "120";
+var counter = 120;
 
 var startButton = document.getElementById('start-btn')
 
@@ -12,29 +12,32 @@ var answerEl=document.getElementById('answer-buttons')
 
 var shuffledQuestions, currentQuestionIndex
 
-var highScore= document.getElementById('highscore')
+var highScore = document.getElementById('highscore')
 
+var element= document.getElementById('timer')
 
+var namePlace=document.getElementById('name')
 
+function countDown(){
+    if (counter <= 0) {
+        clearInterval(newVar)
+    } else{
+    counter--;
+    element.innerHTML=(counter);
+   }
+}
 // Create the Timer that will be in the top left
 function timer(){
-    var element= document.getElementById('timer');
-    element.innerHTML=(counter);
-
-    function countDown(){
-        counter--;
-        element.innerHTML=(counter);
-    }
-     
-    newVar = setInterval(countDown, 1000)
     
-    if(counter < 0) {
-        element.innerText=("0");
-    }
-
+    element.innerHTML=(counter);
+    newVar = setInterval(countDown, 1000)
+    console.log(newVar)
+    console.log(counter)
+    
 }
-timer()
 
+  
+    
 function startGame(){
     console.log('Started');
     startButton.classList.add("hide");
@@ -78,9 +81,11 @@ function showQuestion(question){
         })
   
 }
-function stopTime(counter){
 
 
+function playAudio(){
+    var audio = document.getElementById('audio');
+        audio.play();
 }
 
 function inputForm(){
@@ -94,8 +99,10 @@ function selectAnswer(element){
     var correct = pushedButton.dataset.correct
     if(correct === 'true') {
         window.localStorage.setItem('+1', correct)
+        
     }else{
         counter= counter - 15
+        playAudio()
     }
     
     
@@ -107,7 +114,7 @@ function selectAnswer(element){
         highScore.classList.remove('hide')
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
-
+        namePlace.classList.remove('hide')
     }
 }
 
@@ -115,6 +122,7 @@ function selectAnswer(element){
 
 
 startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', timer)
 highScore.addEventListener('click', inputForm)
 startButton.addEventListener('click', clearLocalStorage)
 nextButton.addEventListener('click', () =>{
